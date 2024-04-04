@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SongDetails" customModule="MusicPlayer" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="207" height="68"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Artist:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3a-Dh-CFS">
+                    <rect key="frame" x="8" y="8" width="46" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OWC-jg-apG">
+                    <rect key="frame" x="62" y="7.9999999999999982" width="137" height="20.333333333333329"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvc-ht-K4K">
+                    <rect key="frame" x="8" y="36.333333333333336" width="41" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1C5-lQ-7ne">
+                    <rect key="frame" x="57" y="36.333333333333336" width="142" height="20.333333333333336"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="cvc-ht-K4K" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="7me-ok-WE2"/>
+                <constraint firstItem="cvc-ht-K4K" firstAttribute="top" secondItem="OWC-jg-apG" secondAttribute="bottom" constant="8" id="8BT-J4-sFE"/>
+                <constraint firstAttribute="trailing" secondItem="OWC-jg-apG" secondAttribute="trailing" constant="8" id="JP7-Cs-s4P"/>
+                <constraint firstAttribute="trailing" secondItem="1C5-lQ-7ne" secondAttribute="trailing" constant="8" id="KgD-PV-7pO"/>
+                <constraint firstItem="1C5-lQ-7ne" firstAttribute="leading" secondItem="cvc-ht-K4K" secondAttribute="trailing" constant="8" id="SoY-K3-oxE"/>
+                <constraint firstItem="OWC-jg-apG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="T8v-jp-DUQ"/>
+                <constraint firstItem="OWC-jg-apG" firstAttribute="leading" secondItem="D3a-Dh-CFS" secondAttribute="trailing" constant="8" id="ZgL-iB-tu7"/>
+                <constraint firstItem="D3a-Dh-CFS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="f3q-TB-09X"/>
+                <constraint firstItem="D3a-Dh-CFS" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="mty-eP-I7Q"/>
+                <constraint firstItem="1C5-lQ-7ne" firstAttribute="top" secondItem="OWC-jg-apG" secondAttribute="bottom" constant="8" id="ycr-4P-PZK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                    <real key="value" value="2"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                    <real key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                    <size key="value" width="2" height="2"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                    <color key="value" systemColor="tintColor"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="CornerRadius">
+                    <real key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <connections>
+                <outlet property="artistName" destination="OWC-jg-apG" id="h0k-8g-tXo"/>
+                <outlet property="realeaseDate" destination="1C5-lQ-7ne" id="Apo-Am-zyd"/>
+            </connections>
+            <point key="canvasLocation" x="-2.2900763358778624" y="-256.33802816901408"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
