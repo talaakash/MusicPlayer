@@ -7,15 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3881604C2BC02AF3006801DB /* Unchi Talavdi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3881604B2BC02AF3006801DB /* Unchi Talavdi.mp3 */; };
+		3881604E2BC02BC2006801DB /* Vhalam Aavo Ne.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3881604D2BC02BC2006801DB /* Vhalam Aavo Ne.mp3 */; };
+		388160502BC02C3F006801DB /* Chaand Ne Kaho.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3881604F2BC02C3E006801DB /* Chaand Ne Kaho.mp3 */; };
+		388160522BC02CC9006801DB /* Pa Pa Pagli.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 388160512BC02CC9006801DB /* Pa Pa Pagli.mp3 */; };
+		388160542BC02D39006801DB /* Raja Ne Rani.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 388160532BC02D39006801DB /* Raja Ne Rani.mp3 */; };
+		388160562BC02DF1006801DB /* Krishna Mashup.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 388160552BC02DF1006801DB /* Krishna Mashup.mp3 */; };
+		388160582BC02EA8006801DB /* Veri Varsad.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 388160572BC02EA8006801DB /* Veri Varsad.mp3 */; };
+		3881605A2BC02F1E006801DB /* Maan Meri Jaan.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 388160592BC02F1E006801DB /* Maan Meri Jaan.mp3 */; };
+		3881605C2BC030D8006801DB /* Soulmate.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3881605B2BC030D8006801DB /* Soulmate.mp3 */; };
+		3881605E2BC030E1006801DB /* Kahani Suno.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3881605D2BC030E1006801DB /* Kahani Suno.mp3 */; };
 		38B719572BBEB6AD00688E52 /* SongPreviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B719562BBEB6AD00688E52 /* SongPreviewVC.swift */; };
 		38B719592BBEB9EC00688E52 /* UINavigationController+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38B719582BBEB9EC00688E52 /* UINavigationController+Extention.swift */; };
 		38C653AA2BBE6A7700465E6E /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C653A92BBE6A7700465E6E /* ApiHelper.swift */; };
 		38C653AC2BBE76BA00465E6E /* MusicData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C653AB2BBE76BA00465E6E /* MusicData.swift */; };
 		38C653AE2BBE7D9F00465E6E /* String+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C653AD2BBE7D9F00465E6E /* String+Extention.swift */; };
-		38C653B02BBE916F00465E6E /* SongDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C653AF2BBE916F00465E6E /* SongDetails.swift */; };
-		38C653B22BBE917F00465E6E /* SongDetails.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38C653B12BBE917F00465E6E /* SongDetails.xib */; };
 		38CA048B2BBD7F940011415C /* ViewAdder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CA048A2BBD7F940011415C /* ViewAdder.swift */; };
 		38CA048D2BBD88910011415C /* Values.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CA048C2BBD88910011415C /* Values.swift */; };
+		38D403922BBFC1E500304981 /* UILabel+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D403912BBFC1E500304981 /* UILabel+Extention.swift */; };
+		38D403942BBFC39E00304981 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D403932BBFC39E00304981 /* Extentions.swift */; };
+		38D403962BBFD57100304981 /* GestureHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D403952BBFD57100304981 /* GestureHandler.swift */; };
 		38D638402BBEC48F008FC10B /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D6383F2BBEC48F008FC10B /* Protocols.swift */; };
 		38D638422BBEE378008FC10B /* SongDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38D638412BBEE378008FC10B /* SongDetailsVC.swift */; };
 		38DABED72BBD621A00812979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38DABED62BBD621A00812979 /* AppDelegate.swift */; };
@@ -45,15 +56,26 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3881604B2BC02AF3006801DB /* Unchi Talavdi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Unchi Talavdi.mp3"; sourceTree = "<group>"; };
+		3881604D2BC02BC2006801DB /* Vhalam Aavo Ne.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Vhalam Aavo Ne.mp3"; sourceTree = "<group>"; };
+		3881604F2BC02C3E006801DB /* Chaand Ne Kaho.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Chaand Ne Kaho.mp3"; sourceTree = "<group>"; };
+		388160512BC02CC9006801DB /* Pa Pa Pagli.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Pa Pa Pagli.mp3"; sourceTree = "<group>"; };
+		388160532BC02D39006801DB /* Raja Ne Rani.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Raja Ne Rani.mp3"; sourceTree = "<group>"; };
+		388160552BC02DF1006801DB /* Krishna Mashup.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Krishna Mashup.mp3"; sourceTree = "<group>"; };
+		388160572BC02EA8006801DB /* Veri Varsad.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Veri Varsad.mp3"; sourceTree = "<group>"; };
+		388160592BC02F1E006801DB /* Maan Meri Jaan.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Maan Meri Jaan.mp3"; sourceTree = "<group>"; };
+		3881605B2BC030D8006801DB /* Soulmate.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Soulmate.mp3; sourceTree = "<group>"; };
+		3881605D2BC030E1006801DB /* Kahani Suno.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Kahani Suno.mp3"; sourceTree = "<group>"; };
 		38B719562BBEB6AD00688E52 /* SongPreviewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongPreviewVC.swift; sourceTree = "<group>"; };
 		38B719582BBEB9EC00688E52 /* UINavigationController+Extention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extention.swift"; sourceTree = "<group>"; };
 		38C653A92BBE6A7700465E6E /* ApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
 		38C653AB2BBE76BA00465E6E /* MusicData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicData.swift; sourceTree = "<group>"; };
 		38C653AD2BBE7D9F00465E6E /* String+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extention.swift"; sourceTree = "<group>"; };
-		38C653AF2BBE916F00465E6E /* SongDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetails.swift; sourceTree = "<group>"; };
-		38C653B12BBE917F00465E6E /* SongDetails.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SongDetails.xib; sourceTree = "<group>"; };
 		38CA048A2BBD7F940011415C /* ViewAdder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAdder.swift; sourceTree = "<group>"; };
 		38CA048C2BBD88910011415C /* Values.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Values.swift; sourceTree = "<group>"; };
+		38D403912BBFC1E500304981 /* UILabel+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extention.swift"; sourceTree = "<group>"; };
+		38D403932BBFC39E00304981 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
+		38D403952BBFD57100304981 /* GestureHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GestureHandler.swift; sourceTree = "<group>"; };
 		38D6383F2BBEC48F008FC10B /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		38D638412BBEE378008FC10B /* SongDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongDetailsVC.swift; sourceTree = "<group>"; };
 		38DABED32BBD621A00812979 /* MusicPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,6 +172,7 @@
 				38DABF192BBD6BDF00812979 /* AudioPlayer.swift */,
 				38CA048A2BBD7F940011415C /* ViewAdder.swift */,
 				38C653A92BBE6A7700465E6E /* ApiHelper.swift */,
+				38D403952BBFD57100304981 /* GestureHandler.swift */,
 			);
 			path = HelperClass;
 			sourceTree = "<group>";
@@ -177,8 +200,6 @@
 			children = (
 				38DABF202BBD732D00812979 /* PlayerView.swift */,
 				38DABF222BBD733C00812979 /* PlayerView.xib */,
-				38C653AF2BBE916F00465E6E /* SongDetails.swift */,
-				38C653B12BBE917F00465E6E /* SongDetails.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -209,6 +230,8 @@
 				38DABEF22BBD63C400812979 /* UIView+Extension.swift */,
 				38DABF242BBD74E000812979 /* UIImageView+Extention.swift */,
 				38C653AD2BBE7D9F00465E6E /* String+Extention.swift */,
+				38D403912BBFC1E500304981 /* UILabel+Extention.swift */,
+				38D403932BBFC39E00304981 /* Extentions.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -225,6 +248,16 @@
 				38DABF0E2BBD690C00812979 /* RADHA NE SHYAM.mp3 */,
 				38DABF0B2BBD690C00812979 /* Vaa Vaya.mp3 */,
 				38DABF082BBD690C00812979 /* Vhal no Dariyo.mp3 */,
+				3881604B2BC02AF3006801DB /* Unchi Talavdi.mp3 */,
+				3881604D2BC02BC2006801DB /* Vhalam Aavo Ne.mp3 */,
+				3881604F2BC02C3E006801DB /* Chaand Ne Kaho.mp3 */,
+				388160512BC02CC9006801DB /* Pa Pa Pagli.mp3 */,
+				388160532BC02D39006801DB /* Raja Ne Rani.mp3 */,
+				388160552BC02DF1006801DB /* Krishna Mashup.mp3 */,
+				388160572BC02EA8006801DB /* Veri Varsad.mp3 */,
+				388160592BC02F1E006801DB /* Maan Meri Jaan.mp3 */,
+				3881605B2BC030D8006801DB /* Soulmate.mp3 */,
+				3881605D2BC030E1006801DB /* Kahani Suno.mp3 */,
 			);
 			path = Musics;
 			sourceTree = "<group>";
@@ -323,20 +356,29 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				388160522BC02CC9006801DB /* Pa Pa Pagli.mp3 in Resources */,
 				38DABF182BBD690C00812979 /* Maru Man Mohi Gayu.mp3 in Resources */,
 				38DABF1F2BBD6EE200812979 /* Music.xib in Resources */,
+				388160502BC02C3F006801DB /* Chaand Ne Kaho.mp3 in Resources */,
+				3881605A2BC02F1E006801DB /* Maan Meri Jaan.mp3 in Resources */,
+				3881604E2BC02BC2006801DB /* Vhalam Aavo Ne.mp3 in Resources */,
 				38DABEE32BBD621C00812979 /* LaunchScreen.storyboard in Resources */,
 				38DABEE02BBD621C00812979 /* Assets.xcassets in Resources */,
 				38DABF132BBD690C00812979 /* Kaho Poonam Na.mp3 in Resources */,
+				388160562BC02DF1006801DB /* Krishna Mashup.mp3 in Resources */,
 				38DABEDE2BBD621A00812979 /* Main.storyboard in Resources */,
+				3881605E2BC030E1006801DB /* Kahani Suno.mp3 in Resources */,
 				38DABF152BBD690C00812979 /* Chhanu Re Chhapnu.mp3 in Resources */,
+				388160582BC02EA8006801DB /* Veri Varsad.mp3 in Resources */,
 				38DABF232BBD733C00812979 /* PlayerView.xib in Resources */,
+				3881605C2BC030D8006801DB /* Soulmate.mp3 in Resources */,
 				38DABF282BBD786A00812979 /* AudioPlaying.gif in Resources */,
 				38DABF142BBD690C00812979 /* Vaa Vaya.mp3 in Resources */,
 				38DABF122BBD690C00812979 /* DAKU.mp3 in Resources */,
 				38DABF112BBD690C00812979 /* Vhal no Dariyo.mp3 in Resources */,
+				388160542BC02D39006801DB /* Raja Ne Rani.mp3 in Resources */,
 				38DABF102BBD690C00812979 /* Dhuni Re Dhakhavi.mp3 in Resources */,
-				38C653B22BBE917F00465E6E /* SongDetails.xib in Resources */,
+				3881604C2BC02AF3006801DB /* Unchi Talavdi.mp3 in Resources */,
 				38DABF162BBD690C00812979 /* Kano Dwarika Vado.mp3 in Resources */,
 				38DABF172BBD690C00812979 /* RADHA NE SHYAM.mp3 in Resources */,
 			);
@@ -396,13 +438,15 @@
 				38DABED72BBD621A00812979 /* AppDelegate.swift in Sources */,
 				38DABF212BBD732D00812979 /* PlayerView.swift in Sources */,
 				38C653AE2BBE7D9F00465E6E /* String+Extention.swift in Sources */,
+				38D403962BBFD57100304981 /* GestureHandler.swift in Sources */,
 				38DABF252BBD74E000812979 /* UIImageView+Extention.swift in Sources */,
-				38C653B02BBE916F00465E6E /* SongDetails.swift in Sources */,
 				38CA048B2BBD7F940011415C /* ViewAdder.swift in Sources */,
 				38D638422BBEE378008FC10B /* SongDetailsVC.swift in Sources */,
 				38C653AC2BBE76BA00465E6E /* MusicData.swift in Sources */,
 				38DABF1A2BBD6BDF00812979 /* AudioPlayer.swift in Sources */,
 				38DABEF32BBD63C400812979 /* UIView+Extension.swift in Sources */,
+				38D403942BBFC39E00304981 /* Extentions.swift in Sources */,
+				38D403922BBFC1E500304981 /* UILabel+Extention.swift in Sources */,
 				38CA048D2BBD88910011415C /* Values.swift in Sources */,
 				38B719592BBEB9EC00688E52 /* UINavigationController+Extention.swift in Sources */,
 				38DABED92BBD621A00812979 /* SceneDelegate.swift in Sources */,
