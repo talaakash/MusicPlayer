@@ -14,6 +14,7 @@ class SongPreviewVC: UIViewController {
     @IBOutlet weak var songIntervalView: UIProgressView!
     @IBOutlet weak var songName: UILabel!
     @IBOutlet weak var playPauseBtn: UIButton!
+    @IBOutlet weak var repetitionBtn: UIButton!
     @IBOutlet weak var totalDuration: UILabel!
     var timer: Timer?
     var currentIndex = 0
@@ -23,17 +24,18 @@ class SongPreviewVC: UIViewController {
     }
     
     private func setup(){
-        if let gifURL = Bundle.main.url(forResource: "AudioPlaying", withExtension: "gif") {
-            let imageResource = KF.ImageResource(downloadURL: gifURL)
-            gifImage.kf.setImage(with: imageResource)
-        } else {
-            print("GIF file not found in the asset catalog")
-        }
         currentIndex = Audio.player.currentIndex
-        songName.text = Values.musics[currentIndex]
+        let songDetail = Values.allMusics[currentIndex]
+        if let name = songDetail["Name"]{
+            songName.text = name
+        } else {
+            songName.text = songDetail["Url"]
+        }
+        animatePlayingImage()
         
         if !Audio.player.isPlaying{
             self.playPauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            stopAnimatingPlayingImage()
         }
         
         totalDuration.text = Audio.player.getTotalInterval()
@@ -43,11 +45,28 @@ class SongPreviewVC: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(changeIndex(_:)), name: NSNotification.Name.indexChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(changePlay(_:)), name: NSNotification.Name.isplaying, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeRepetition(_:)), name: NSNotification.Name.repetitionMode, object: nil)
+        
         
         timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             let progress = Float(Audio.player.getCurrentTime() / Audio.player.getTotalTime())
             songIntervalView.setProgress(progress, animated: true)
+        }
+    }
+    
+    private func animatePlayingImage(){
+        if let gifURL = Bundle.main.url(forResource: "AudioPlaying", withExtension: "gif") {
+            let imageResource = KF.ImageResource(downloadURL: gifURL)
+            gifImage.kf.setImage(with: imageResource)
+        } else {
+            print("GIF file not found in the asset catalog")
+        }
+    }
+    
+    private func stopAnimatingPlayingImage(){
+        if let gifURL = Bundle.main.url(forResource: "AudioPlaying", withExtension: "gif") {
+            gifImage.image = try? UIImage(data: Data(contentsOf: gifURL))
         }
     }
     
@@ -59,17 +78,35 @@ class SongPreviewVC: UIViewController {
         }
     }
     
+    @objc func changeRepetition(_ notification: NSNotification){
+        let repetitionMode = notification.userInfo?["repetitionMode"] as? Int ?? currentIndex
+        if repetitionMode == 0{
+            repetitionBtn.tintColor = UIColor.white
+        } else if repetitionMode == 1{
+            repetitionBtn.tintColor = UIColor.green
+        } else {
+            repetitionBtn.tintColor = UIColor.red
+        }
+    }
+    
     @objc func changeIndex(_ notification: NSNotification){
         currentIndex = notification.userInfo?["index"] as? Int ?? currentIndex
-        songName.text = Values.musics[currentIndex]
+        let songDetail = Values.allMusics[currentIndex]
+        if let name = songDetail["Name"]{
+            self.songName.text = name
+        } else {
+            self.songName.text = songDetail["Url"]
+        }
         totalDuration.text = Audio.player.getTotalInterval()
     }
     
     @objc func changePlay(_ notification: NSNotification){
         if !(notification.userInfo?["isplaying"] as! Bool){
             self.playPauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            stopAnimatingPlayingImage()
         } else {
             self.playPauseBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            animatePlayingImage()
         }
     }
     
@@ -86,6 +123,6 @@ class SongPreviewVC: UIViewController {
     }
     
     @IBAction func reapeatClicked(_ sender: UIButton){
-        
+        Audio.player.setNewRepetitionMode()
     }
 }

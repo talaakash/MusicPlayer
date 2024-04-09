@@ -17,28 +17,48 @@ class PlayerView: UIView{
     
     override func draw(_ rect: CGRect) {
         super.draw(rect)
+        NotificationCenter.default.addObserver(self, selector: #selector(changeIndex(_:)), name: NSNotification.Name.indexChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(changePlay(_:)), name: NSNotification.Name.isplaying, object: nil)
+        animatePlayingImage()
+        if !Audio.player.isPlaying{
+            self.playPauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            stopAnimatingPlayingImage()
+        }
+    }
+    
+    @objc func changePlay(_ notification: NSNotification){
+        if !(notification.userInfo?["isplaying"] as! Bool){
+            self.playPauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
+            stopAnimatingPlayingImage()
+        } else {
+            self.playPauseBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+            animatePlayingImage()
+        }
+    }
+    
+    @objc func changeIndex(_ notification: NSNotification){
+        seletedIndex = notification.userInfo?["index"] as? Int ?? seletedIndex
+        let songDetail = Values.allMusics[seletedIndex!]
+        if let name = songDetail["Name"]{
+            self.musicName.text = name
+        } else {
+            self.musicName.text = songDetail["Url"]
+        }
+    }
+    
+    private func animatePlayingImage(){
         if let gifURL = Bundle.main.url(forResource: "AudioPlaying", withExtension: "gif") {
             let imageResource = KF.ImageResource(downloadURL: gifURL)
             playingImage.kf.setImage(with: imageResource)
         } else {
             print("GIF file not found in the asset catalog")
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(changeIndex(_:)), name: NSNotification.Name.indexChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(changePlay(_:)), name: NSNotification.Name.isplaying, object: nil)
-
     }
     
-    @objc func changePlay(_ notification: NSNotification){
-        if !(notification.userInfo?["isplaying"] as! Bool){
-            self.playPauseBtn.setImage(UIImage(systemName: "play.fill"), for: .normal)
-        } else {
-            self.playPauseBtn.setImage(UIImage(systemName: "pause.fill"), for: .normal)
+    private func stopAnimatingPlayingImage(){
+        if let gifURL = Bundle.main.url(forResource: "AudioPlaying", withExtension: "gif") {
+            playingImage.image = try? UIImage(data: Data(contentsOf: gifURL))
         }
-    }
-    
-    @objc func changeIndex(_ notification: NSNotification){
-        seletedIndex = notification.userInfo?["index"] as? Int ?? seletedIndex
-        self.musicName.text = Values.musics[seletedIndex!]
     }
     
     @IBAction func playPuseController(_ sender: UIButton){

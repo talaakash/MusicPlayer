@@ -11,6 +11,7 @@ class Music: UITableViewCell {
 
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var previewBtn: UIButton!
+    @IBOutlet weak var songProgress: UIProgressView!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
