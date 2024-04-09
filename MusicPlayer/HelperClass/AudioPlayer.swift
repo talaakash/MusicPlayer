@@ -7,56 +7,104 @@
 
 import Foundation
 import AVKit
+import AVFoundation
 
 class Audio{
     static let player = Audio()
     var player: AVAudioPlayer?
     private var currentPlaybackTime: TimeInterval = 0
     private var reapeat = 0
+    private var playBackTime: [Int:TimeInterval] = [:]
     var currentIndex = 0
     var isPlaying = true
     private var timer: Timer?
+    var onlinePlayer: AVPlayer?
     
     private init(){
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationWillTerminate), name: UIApplication.willTerminateNotification, object: nil)
     }
     
-    func play(fileName: String, fileType: String){  // Playing Audio
-        let url = Bundle.main.url(forResource: fileName, withExtension: fileType)!
+    @objc private func applicationWillTerminate(_ notification: NSNotification){
+        UserDefaults.standard.setValue(["DurationPlayed": player?.currentTime ?? 0,"Index": currentIndex], forKey: "LastPlayedSong")
+    }
+    
+    func playMusic(index: Int){
+        onlinePlayer?.pause()
+        player?.pause()
+        playBackTime[currentIndex] = player?.currentTime
+        currentIndex = index
+        isPlaying = true
+        NotificationCenter.default.post(name: NSNotification.Name.indexChanged, object: nil, userInfo: ["index":currentIndex])
+        NotificationCenter.default.post(name: NSNotification.Name.isplaying, object: nil, userInfo: ["isplaying":isPlaying])
+        if Values.allMusics[index]["Name"] != nil{
+            playFromUrl(index: index)
+        } else {
+            play(index: index)
+        }
+    }
+    
+    private func addPlayerView(){
+        guard let window = UIApplication.shared.keyWindow else {
+            return
+        }
+        ViewAdder.shared.addPlayerView(view: window, index: currentIndex)
+    }
+    
+    func play(index: Int){  // Playing Audio
+        let song = Values.allMusics[index]
+        let url = Bundle.main.url(forResource: song["Url"], withExtension: "mp3")!
         do {
             player = try AVAudioPlayer(contentsOf: url)
             guard let player = player else { return }
+            if let oldTime = playBackTime[currentIndex]{
+                player.currentTime = oldTime
+            }
             player.prepareToPlay()
-            player.numberOfLoops = reapeat
             player.play()
             player.delegate = self
-//            startPlaybackTimer()
+            addPlayerView()
         } catch let error as NSError {
             print(error.description)
         }
     }
     
-//    func startPlaybackTimer() {
-//        timer = Timer.scheduledTimer(withTimeInterval: 0.0001, repeats: true) { [weak self] _ in
-//            if let currentTime = self?.player?.currentTime, let duration = self?.player?.duration{
-//                if duration - currentTime <= 0.005 {
-//                    self?.playNext()
-//                }
-//            }
-//        }
-//    }
-
+    func playFromUrl(index: Int){
+        let song = Values.allMusics[index]
+        let playerItem = AVPlayerItem(url: URL(string: song["Url"]!)!)
+        onlinePlayer = AVPlayer(playerItem: playerItem)
+        
+        if onlinePlayer?.rate == 0{
+            onlinePlayer?.play()
+        }
+        addPlayerView()
+    }
     
     func getCurrentTime() -> TimeInterval{
         return player?.currentTime ?? TimeInterval()
     }
-    
+        
     func getTotalTime() -> TimeInterval{
         return player?.duration ?? TimeInterval()
     }
     
     func setNewInterval(progress: Double){
         player?.currentTime = progress * (player?.duration ?? TimeInterval())
+    }
+    
+    func setNewInterval(interval: TimeInterval){
+        player?.currentTime = interval
+    }
+    
+    func setNewRepetitionMode(){
+        if reapeat == 0{
+            reapeat = 1
+        } else if reapeat == 1{
+            reapeat = -1
+        } else {
+            reapeat = 0
+        }
+        player?.numberOfLoops = reapeat
+        NotificationCenter.default.post(name: NSNotification.Name.repetitionMode, object: nil, userInfo: ["repetitionMode":reapeat])
     }
     
     func getTotalInterval() -> String{
@@ -79,7 +127,7 @@ class Audio{
     
     func pause(){
         player?.pause()
-        currentPlaybackTime = player!.currentTime
+        currentPlaybackTime = player?.currentTime ?? TimeInterval()
     }
     
     func resumeAudio() {
@@ -90,18 +138,16 @@ class Audio{
     }
     
     func playNext(){
-        if Values.musics.count > currentIndex + 1{
-            currentIndex = currentIndex + 1
-            play(fileName: Values.musics[currentIndex], fileType: "mp3")
-            NotificationCenter.default.post(name: NSNotification.Name.indexChanged, object: nil, userInfo: ["index":currentIndex])
+        if Values.allMusics.count > currentIndex + 1{
+//            currentIndex = currentIndex + 1
+            playMusic(index: currentIndex + 1)
         }
     }
     
     func playPrevius(){
         if currentIndex > 0{
-            currentIndex = currentIndex - 1
-            play(fileName: Values.musics[currentIndex], fileType: "mp3")
-            NotificationCenter.default.post(name: NSNotification.Name.indexChanged, object: nil, userInfo: ["index":currentIndex])
+//            currentIndex = currentIndex - 1
+            playMusic(index: currentIndex - 1)
         }
     }
 }
@@ -160,6 +206,7 @@ extension Audio: AVAudioPlayerDelegate{
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        playBackTime[currentIndex] = 0
         playNext()
     }
     

@@ -5,19 +5,21 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
         <scene sceneID="BAn-w1-8Ag">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="tiB-1v-eOo" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="tiB-1v-eOo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gna-1R-MWs">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lHI-87-W2d">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="PHy-qG-I79"/>
                     </connections>
@@ -55,6 +57,9 @@
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="23"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="image" keyPath="setImage" value="gradient"/>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
                                 <constraints>
@@ -200,6 +205,7 @@
                     <connections>
                         <outlet property="gifImage" destination="uZ2-mx-KWg" id="3yT-uZ-gQg"/>
                         <outlet property="playPauseBtn" destination="zdF-uX-ixe" id="HAF-1r-DBW"/>
+                        <outlet property="repetitionBtn" destination="J7n-wd-5gw" id="bqs-rP-hlk"/>
                         <outlet property="songIntervalView" destination="9wD-gw-wcF" id="ezF-DF-XVw"/>
                         <outlet property="songName" destination="1ey-NT-on9" id="8gY-2s-nqk"/>
                         <outlet property="totalDuration" destination="thT-89-QC2" id="sFt-7g-8py"/>
@@ -216,9 +222,61 @@
                     <view key="view" contentMode="scaleToFill" id="AAT-M9-kzN">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qr0-H5-pQZ">
+                                <rect key="frame" x="32" y="123" width="329" height="329"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qr0-H5-pQZ" secondAttribute="height" multiplier="8:8" id="YyC-a6-90H"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cP-va-5Bj">
+                                <rect key="frame" x="32" y="484" width="61" height="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Realease Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ir-CR-mji">
+                                <rect key="frame" x="32" y="520.33333333333337" width="140" height="23"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="19"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Artist Name" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LDb-Zo-Xu4">
+                                <rect key="frame" x="101" y="484" width="90" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3GR-3m-1Q4">
+                                <rect key="frame" x="180" y="520.33333333333337" width="36" height="20.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="eJD-ev-tLG"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="3GR-3m-1Q4" firstAttribute="leading" secondItem="7ir-CR-mji" secondAttribute="trailing" constant="8" id="3e8-LH-8S0"/>
+                            <constraint firstItem="3cP-va-5Bj" firstAttribute="leading" secondItem="eJD-ev-tLG" secondAttribute="leading" constant="32" id="AGC-zy-LgX"/>
+                            <constraint firstItem="3cP-va-5Bj" firstAttribute="top" secondItem="qr0-H5-pQZ" secondAttribute="bottom" constant="32" id="EJ1-VK-z9S"/>
+                            <constraint firstItem="qr0-H5-pQZ" firstAttribute="top" secondItem="eJD-ev-tLG" secondAttribute="top" constant="64" id="Z78-sp-Rkj"/>
+                            <constraint firstItem="7ir-CR-mji" firstAttribute="leading" secondItem="eJD-ev-tLG" secondAttribute="leading" constant="32" id="eZm-TA-XCG"/>
+                            <constraint firstItem="LDb-Zo-Xu4" firstAttribute="leading" secondItem="3cP-va-5Bj" secondAttribute="trailing" constant="8" id="h96-37-REa"/>
+                            <constraint firstItem="eJD-ev-tLG" firstAttribute="trailing" secondItem="qr0-H5-pQZ" secondAttribute="trailing" constant="32" id="han-ES-UGq"/>
+                            <constraint firstItem="eJD-ev-tLG" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LDb-Zo-Xu4" secondAttribute="trailing" constant="32" id="jEs-g3-7lA"/>
+                            <constraint firstItem="LDb-Zo-Xu4" firstAttribute="top" secondItem="qr0-H5-pQZ" secondAttribute="bottom" constant="32" id="pCT-pf-70E"/>
+                            <constraint firstItem="3GR-3m-1Q4" firstAttribute="top" secondItem="LDb-Zo-Xu4" secondAttribute="bottom" constant="16" id="qFO-9X-SWL"/>
+                            <constraint firstItem="qr0-H5-pQZ" firstAttribute="leading" secondItem="eJD-ev-tLG" secondAttribute="leading" constant="32" id="shI-WJ-rj6"/>
+                            <constraint firstItem="eJD-ev-tLG" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3GR-3m-1Q4" secondAttribute="trailing" constant="32" id="vVD-aR-qmV"/>
+                            <constraint firstItem="7ir-CR-mji" firstAttribute="top" secondItem="LDb-Zo-Xu4" secondAttribute="bottom" constant="16" id="zPb-cs-RQ0"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="artistlbl" destination="LDb-Zo-Xu4" id="4Xp-aj-dWX"/>
+                        <outlet property="realeaseDatelbl" destination="3GR-3m-1Q4" id="HGn-LJ-tBZ"/>
+                        <outlet property="songImage" destination="qr0-H5-pQZ" id="cc0-qP-XP7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4L-y5-gf6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -230,9 +288,7 @@
         <image name="arrow.3.trianglepath" catalog="system" width="128" height="123"/>
         <image name="arrowshape.left.fill" catalog="system" width="128" height="104"/>
         <image name="arrowshape.right.fill" catalog="system" width="128" height="104"/>
+        <image name="gradient" width="3000" height="2000"/>
         <image name="pause.fill" catalog="system" width="117" height="128"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

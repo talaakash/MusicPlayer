@@ -11,19 +11,24 @@ import UIKit
 class ViewAdder{
     static let shared = ViewAdder()
     private var playerView: PlayerView?
-    private var songDetailView: SongDetails?
 
     private init(){
         playerView = Bundle.main.loadNibNamed("PlayerView", owner: nil, options: nil)?.first as? PlayerView
         playerView?.frame = CGRect(origin: CGPoint(x: 8, y: UIScreen.main.bounds.height - 100), size: CGSize(width: UIScreen.main.bounds.width - 16, height: 100))
-        songDetailView = Bundle.main.loadNibNamed("SongDetails", owner: nil, options: nil)?.first as? SongDetails
     }
     
     func addPlayerView(view: UIView, index: Int){
+        if view.contains(playerView ?? UIView()){
+            return
+        }
         removePlayerView()
         playerView?.seletedIndex = index
         Audio.player.currentIndex = index
-        playerView?.musicName.text = Values.musics[index]
+        if let name = Values.allMusics[index]["Name"]{
+            playerView?.musicName.text = name
+        } else {
+            playerView?.musicName.text = Values.allMusics[index]["Url"]
+        }
         view.addSubview(playerView ?? UIView())
         let originalY = playerView?.frame.origin.y ?? 0
         playerView?.frame.origin.y = view.frame.height
@@ -34,16 +39,5 @@ class ViewAdder{
     
     func removePlayerView(){
         playerView?.removeFromSuperview()
-    }
-    
-    func addSongPreview(mainView: UIView, cell: UIView, index: Int){
-        songDetailView?.artistName.text = Values.songDetails[index]["Artist"]
-        songDetailView?.realeaseDate.text = Values.songDetails[index]["Date"]
-        songDetailView?.frame = CGRect(x: cell.frame.minX + 40, y: cell.frame.maxY + 120, width: cell.frame.width - cell.frame.minX - 40, height: songDetailView?.frame.height ?? 50)
-        mainView.addSubview(songDetailView!)
-    }
-    
-    func removeSongPreview(){
-        songDetailView?.removeFromSuperview()
     }
 }
